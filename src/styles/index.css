@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: theme("colors.border");
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: theme("colors.background");
+    color: theme("colors.foreground");
+    font-family: theme("fontFamily.sans");
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: normal;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: theme("colors.accent.DEFAULT");
+    color: theme("colors.accent.foreground");
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme("colors.background");
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.surface.hover");
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.muted.DEFAULT");
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Skeleton shimmer */
+  .skeleton {
+    @apply animate-pulse rounded bg-surface-hover;
+  }
+
+  /* Masonry layout */
+  .masonry {
+    column-gap: 1rem;
+    column-count: 1;
+  }
+  @media (min-width: 640px) {
+    .masonry {
+      column-count: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .masonry {
+      column-count: 3;
+    }
+  }
+  @media (min-width: 1536px) {
+    .masonry {
+      column-count: 4;
+    }
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-accent;
+  }
+}

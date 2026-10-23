@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment — NEVER commit real credentials
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Testing
+coverage/
+test-results/
+playwright-report/
+
+# Supabase (local dev)
+supabase/.branches
+supabase/.temp
+
+# PWA generated files (optional — keep if you want them tracked)
+# public/sw.js
+# public/workbox-*.js

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://nexreff-creative-space.pages.dev/sitemap.xml
